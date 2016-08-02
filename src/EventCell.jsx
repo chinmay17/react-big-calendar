@@ -23,24 +23,22 @@ let EventCell = React.createClass({
       var { style, className: xClassName } = eventPropGetter(event, start, end, selected);
 
     return (
-      <div
-        {...props}
-        style={{...props.style, ...style}}
-        className={cn('rbc-event', className, xClassName, {
+      Component ? <Component style={{...props.style, ...style}} event={event} continuesPrior={continuesPrior} continuesAfter={continuesAfter}/> :
+        <div
+          {...props}
+          style={{...props.style, ...style}}
+          className={cn('rbc-event', className, xClassName, {
           'rbc-selected': selected,
           'rbc-event-allday': isAllDay || dates.diff(start, dates.ceil(end, 'day'), 'day') > 1,
           'rbc-event-continues-prior': continuesPrior,
           'rbc-event-continues-after': continuesAfter
         })}
-        onClick={()=> onSelect(event)}
-      >
-        <div className='rbc-event-content' title={title}>
-          { Component
-            ? <Component event={event} title={title}/>
-            : title
-          }
+          onClick={()=> onSelect(event)}
+        >
+          <div className='rbc-event-content' title={title}>
+            {title}
+          </div>
         </div>
-      </div>
     );
   }
 });
