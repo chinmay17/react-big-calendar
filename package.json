@@ -29,7 +29,7 @@
     "build": "npm run clean && babel src --out-dir lib && npm run assets && npm run less",
     "build:examples": "npm run clean:examples && webpack --config webpack/examples.config.es6.js",
     "build:visual-test": "webpack --config webpack/visual-test.es6.js",
-    "examples": "npm run clean:examples && webpack-dev-server --inline --hot --config webpack/examples.config.es6.js",
+    "examples": "npm run clean:examples && webpack-dev-server --hot --config webpack/examples.config.es6.js",
     "lint": "eslint src --ext .jsx --ext .js",
     "storybook": "start-storybook -p 9002",
     "test": "npm run lint",

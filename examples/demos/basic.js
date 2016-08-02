@@ -1,17 +1,17 @@
 import React, { PropTypes } from 'react';
 import BigCalendar from 'react-big-calendar';
-import events from '../events';
+import events from './distributed/events';
 
-let Basic = React.createClass({
+let Basic = React.createClass( {
   render(){
     return (
       <BigCalendar
         {...this.props}
         events={events}
-        defaultDate={new Date(2015, 3, 1)}
+        toolbar={false}
       />
     )
   }
-})
+} )
 
 export default Basic;

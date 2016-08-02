@@ -7,7 +7,6 @@ const port = Number(process.argv[2]) || Number(process.env.PORT) || 3000
 
 module.exports = {
   port,
-  devtool: 'source-map',
   entry: path.join(__dirname, '../examples/App.js'),
   output: {
     path: path.join(__dirname, '../examples/'),
