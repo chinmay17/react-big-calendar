@@ -34,12 +34,14 @@ class DisplayCells extends React.Component {
 
   render(){
     let { slots } = this.props;
-    let { selecting, startIdx, endIdx } = this.state
+    let { selecting, startIdx, endIdx } = this.state;
+    let {component: CustomComponent, dates} = this.props;
 
     let children = [];
 
     for (var i = 0; i < slots; i++) {
       children.push(
+        CustomComponent ? <CustomComponent key={'bg_' + i} style={segStyle(1, slots)} date={dates[i]}/>:
         <div
           key={'bg_' + i}
           style={segStyle(1, slots)}
