@@ -1,7 +1,13 @@
 import React, { PropTypes } from 'react';
+import { DragDropContext } from 'react-dnd';
+import HTML5Backend from 'react-dnd-html5-backend';
+
 import BigCalendar from 'react-big-calendar';
 import MonthEvent from './event/monthEvent';
 import WeekEvent from './event/weekEvent';
+
+import MonthBgCell from './backgroundBlocks/monthBlock';
+import WeekBgCell from './backgroundBlocks/weekBlock';
 
 import events from './events';
 import './distributed.less';
@@ -14,18 +20,20 @@ const FORMATS = {
   },
   COMPONENTS = {
     month: {
-      event: MonthEvent
+      event : MonthEvent,
+      bgCell: MonthBgCell
     },
     week : {
-      event: WeekEvent
+      event : WeekEvent,
+      bgCell: WeekBgCell
     }
   };
 
-let Basic = React.createClass( {
+let Distributed = React.createClass( {
   getInitialState(){
     return {
-      date: new Date( 2016, 7, 0 ),
-      view: 'month'
+      date: new Date( 2016, 7, 8 ),
+      view: 'week'
     }
   },
   onNavigate( date ){
@@ -45,7 +53,8 @@ let Basic = React.createClass( {
         onNavigate={this.onNavigate}
         onView={this.onView}
         toolbar={false}
-        defaultView="month"
+        defaultDate={new Date(2016, 7, 8)}
+        defaultView="week"
         view={this.state.view}
         formats={FORMATS}
         components={COMPONENTS}
@@ -54,4 +63,4 @@ let Basic = React.createClass( {
   }
 } );
 
-export default Basic;
+export default DragDropContext( HTML5Backend )( Distributed );
