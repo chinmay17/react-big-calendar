@@ -27,7 +27,9 @@ export default class TimeSlotGroup extends Component {
                      content={content}
                      culture={this.props.culture}
                      isNow={this.props.isNow}
-                     value={value} />
+                     value={value}
+                     component={this.props.bgComponent}
+    />
   }
 
   renderSlices() {

@@ -17,7 +17,10 @@ export default class TimeSlot extends Component {
   }
 
   render() {
+    const {props} = this,
+      {component: CustomComponent} = props;
     return (
+    CustomComponent ? <CustomComponent date={props.value}/> :
       <div
         className={cn(
           'rbc-time-slot',

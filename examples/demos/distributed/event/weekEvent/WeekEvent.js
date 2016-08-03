@@ -1,10 +1,30 @@
 import React, { Component, PropTypes } from 'react';
+import { DragSource } from 'react-dnd';
 import classNames from 'classnames';
 import moment from 'moment';
+import Constants from '../../dndConstants';
 
 import {isAllDayEvent} from '../utils';
 
 import './weekEvent.less';
+
+
+const taskSource = {
+  beginDrag( props ){
+    return {};
+  },
+  canDrag( props ){
+    console.log( props );
+    return true;
+  }
+};
+
+function collect( connect, monitor ) {
+  return {
+    connectDragSource: connect.dragSource(),
+    isDragging       : monitor.isDragging()
+  }
+}
 
 class WeekEvent extends Component {
 
@@ -30,16 +50,21 @@ class WeekEvent extends Component {
 
   render() {
     const {props} = this,
-      {event} = props,
+      { connectDragSource, isDragging, event } = props,
       isAllDay = isAllDayEvent( event );
-    return (
+
+
+    return connectDragSource(
       <div
         className={classNames("dstWeekEvent__container", {
         'dstWeekEvent__container--allDay': isAllDay,
         'dstWeekEvent__container--event': !isAllDay && event.event,
         'dstWeekEvent__container--task': event.task
         })}
-        style={props.style}>
+        style={Object.assign({
+        opacity: isDragging ? 0.5 : 1,
+        cursor: 'move'
+      }, props.style)}>
         {this._renderDuration( event, isAllDay )}
         {this._renderTitle( event )}
         {this._renderDescription( event, isAllDay )}
@@ -48,4 +73,4 @@ class WeekEvent extends Component {
   }
 }
 
-export default WeekEvent;
+export default DragSource( Constants.ItemTypes.TASK, taskSource, collect )( WeekEvent );
