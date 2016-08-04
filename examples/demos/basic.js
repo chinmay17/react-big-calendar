@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import BigCalendar from 'react-big-calendar';
-import events from './distributed/events';
+import events from './spr-demo/events';
 
 let Basic = React.createClass( {
   render(){

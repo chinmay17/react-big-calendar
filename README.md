@@ -1,4 +1,4 @@
-react-big-calendar
+spr-react-big-calendar
 ========================
 
 An events calendar component built for React and made for modern browsers (read: IE10+) and uses flexbox over the classic tables-ception approach.
@@ -9,9 +9,9 @@ Inspired by [Full Calendar](http://fullcalendar.io/).
 
 ## Use and Setup
 
-`npm install react-big-calendar --save`
+`npm install spr-react-big-calendar --save`
 
-Include `react-big-calendar/lib/css/react-big-calendar.css` for styles.
+Include `spr-react-big-calendar/lib/css/react-big-calendar.css` for styles.
 
 ## Run examples locally
 
@@ -22,7 +22,7 @@ Include `react-big-calendar/lib/css/react-big-calendar.css` for styles.
 
 ### Localization and Date Formatting
 
-`react-big-calendar` includes two options for handling the date formatting and culture localization, depending
+`spr-react-big-calendar` includes two options for handling the date formatting and culture localization, depending
 on your preference of DateTime libraries. You can use either the [Moment.js](http://momentjs.com/) or [Globalize.js](https://github.com/jquery/globalize) localizers.
 
 Regardless of your choice, you __must__ choose a localizer to use this library:
@@ -30,7 +30,7 @@ Regardless of your choice, you __must__ choose a localizer to use this library:
 #### Moment.js
 
 ```js
-import BigCalendar from 'react-big-calendar';
+import BigCalendar from 'spr-react-big-calendar';
 import moment from 'moment';
 
 BigCalendar.setLocalizer(
@@ -41,7 +41,7 @@ BigCalendar.setLocalizer(
 #### Globalize.js v0.1.1
 
 ```js
-import BigCalendar from 'react-big-calendar';
+import BigCalendar from 'spr-react-big-calendar';
 import globalize from 'globalize';
 
 BigCalendar.setLocalizer(

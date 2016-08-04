@@ -16,20 +16,20 @@ import './prism.less';
 const Example = React.createClass( {
   getInitialState(){
     return {
-      selected: 'distributed'
+      selected: 'spr'
     };
   },
 
   render() {
     let selected = this.state.selected;
     let Current = {
-      basic      : require( './demos/basic' ),
-      selectable : require( './demos/selectable' ),
-      cultures   : require( './demos/cultures' ),
-      popup      : require( './demos/popup' ),
-      rendering  : require( './demos/rendering' ),
-      customView : require( './demos/customView' ),
-      distributed: require( './demos/distributed/view' )
+      basic     : require( './demos/basic' ),
+      selectable: require( './demos/selectable' ),
+      cultures  : require( './demos/cultures' ),
+      popup     : require( './demos/popup' ),
+      rendering : require( './demos/rendering' ),
+      customView: require( './demos/customView' ),
+      spr       : require( './demos/spr-demo/view' )
     }[ selected ];
 
     return (

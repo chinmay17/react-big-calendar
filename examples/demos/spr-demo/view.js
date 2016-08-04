@@ -10,13 +10,21 @@ import MonthBgCell from './backgroundBlocks/monthBlock';
 import WeekBgCell from './backgroundBlocks/weekBlock';
 
 import events from './events';
-import './distributed.less';
+import './spr-demo.less';
+
+function timeRangeFormat( _ref2, culture, local ) {
+  var start = _ref2.start;
+  var end = _ref2.end;
+  return local.format( start, 'h:mma', culture ) + ' — ' + local.format( end, 'h:mma', culture );
+}
 
 
 const FORMATS = {
-    weekHeaderFormat: 'ddd DD',
-    dayFormat       : 'ddd DD',
-    timeGutterFormat: 'h a'
+    weekHeaderFormat     : 'ddd DD',
+    dayFormat            : 'ddd DD',
+    timeGutterFormat     : 'h a',
+    agendaTimeRangeFormat: timeRangeFormat,
+    agendaTimeFormat     : 'hh:mm a'
   },
   COMPONENTS = {
     month: {
@@ -52,10 +60,10 @@ let Distributed = React.createClass( {
         events={events}
         onNavigate={this.onNavigate}
         onView={this.onView}
-        toolbar={false}
         defaultDate={new Date(2016, 7, 8)}
         defaultView="week"
         view={this.state.view}
+        views={{ week: true, month: true, agenda: true /*() => <div>Agenda View</div> */}}
         formats={FORMATS}
         components={COMPONENTS}
       />
