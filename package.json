@@ -1,6 +1,6 @@
 {
   "name": "spr-react-big-calendar",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Fork of intljusticemission/react-big-calendar",
   "author": "Jason Quense <monastic.panic@gmail.com>",
   "repository": "sprinklr/spr-react-big-calendar",
@@ -34,8 +34,7 @@
     "storybook": "start-storybook -p 9002",
     "test": "npm run lint",
     "tdd": "karma start",
-    "release": "release",
-    "postinstall": "npm run build"
+    "prepublish": "npm run build"
   },
   "peerDependencies": {
     "react": "^0.14.0 || ^15.0.0",
